@@ -1,0 +1,183 @@
+import { useState } from "react"
+import { useLocation, useNavigate } from "react-router-dom"
+import {
+  LayoutDashboard, Mail, FileText, FolderOpen,
+  Calendar, Settings, LogIn, ChevronRight, Menu,
+  X, Search, Send, Activity
+} from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
+import { Input } from "@/components/ui/input"
+import { ScrollArea } from "@/components/ui/scroll-area"
+import { Separator } from "@/components/ui/separator"
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
+
+type ViewKey = "dashboard" | "email" | "docs" | "files" | "obsidian" | "calendar" | "settings" | "auth"
+
+interface NavItem {
+  id: ViewKey
+  label: string
+  icon: React.ElementType
+  badge?: number | string
+}
+
+const SIDEBAR_ITEMS: NavItem[] = [
+  { id: "dashboard", label: "Dashboard", icon: LayoutDashboard },
+  { id: "email", label: "Email", icon: Mail, badge: 3 },
+  { id: "docs", label: "Documents", icon: FileText },
+  { id: "files", label: "Files", icon: FolderOpen },
+  { id: "obsidian", label: "Obsidian", icon: FolderOpen },
+  { id: "calendar", label: "Calendar", icon: Calendar },
+  { id: "settings", label: "Settings", icon: Settings },
+]
+
+export function Sidebar({ children }: { children: React.ReactNode }) {
+  const location = useLocation()
+  const navigate = useNavigate()
+  const [mobileOpen, setMobileOpen] = useState(false)
+  const currentView = location.pathname.replace("/", "") as ViewKey || "dashboard"
+
+  const NavContent = () => (
+    <div className="flex flex-col gap-1 p-2">
+      {SIDEBAR_ITEMS.map((item) => {
+        const isActive = currentView === item.id
+        const Icon = item.icon
+        return (
+          <Tooltip key={item.id} delayDuration={0}>
+            <TooltipTrigger asChild>
+              <Button
+                variant={isActive ? "secondary" : "ghost"}
+                size="sm"
+                className={`w-full justify-start gap-2.5 text-sm font-medium transition-colors ${
+                  isActive
+                    ? "bg-accent text-accent-foreground"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+                onClick={() => navigate(`/${item.id}`)}
+              >
+                <Icon className="h-4 w-4 shrink-0" />
+                <span className="flex-1 text-left">{item.label}</span>
+                {item.badge !== undefined && (
+                  <Badge
+                    variant="secondary"
+                    className="h-5 min-w-5 px-1.5 text-[10px]"
+                  >
+                    {item.badge}
+                  </Badge>
+                )}
+                {isActive && (
+                  <ChevronRight className="h-3.5 w-3.5 shrink-0 text-muted-foreground" />
+                )}
+              </Button>
+            </TooltipTrigger>
+            <TooltipContent side="right" sideOffset={8}>
+              {item.label}
+              {item.badge !== undefined && (
+                <div className="mt-0.5 flex items-center gap-1 text-xs">
+                  <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+                  {item.badge} new
+                </div>
+              )}
+            </TooltipContent>
+          </Tooltip>
+        )
+      })}
+    </div>
+  )
+
+  return (
+    <TooltipProvider delayDuration={0}>
+      <div className="flex h-screen w-full overflow-hidden">
+        {/* Desktop sidebar */}
+        <aside className="hidden md:flex flex-col w-56 lg:w-60 h-full border-r border-border bg-card">
+          {/* Logo */}
+          <div className="flex h-14 items-center gap-2 border-b border-border px-4">
+            <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-primary text-primary-foreground">
+              <Activity className="h-4 w-4" />
+            </div>
+            <span className="text-sm font-semibold tracking-tight">Zeg Dashboard</span>
+          </div>
+
+          {/* Search */}
+          <div className="border-b border-border p-2">
+            <div className="relative">
+              <Search className="absolute left-2.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-muted-foreground" />
+              <Input
+                placeholder="Search views..."
+                className="pl-8 h-7 text-xs bg-muted/50"
+                onChange={(e) => {
+                  const q = e.target.value.toLowerCase()
+                  const found = SIDEBAR_ITEMS.find((i) =>
+                    i.label.toLowerCase().includes(q)
+                  )
+                  if (found) navigate(`/${found.id}`)
+                }}
+              />
+            </div>
+          </div>
+
+          <Separator />
+
+          {/* Nav */}
+          <ScrollArea className="flex-1">
+            <NavContent />
+          </ScrollArea>
+
+          <Separator />
+
+          {/* Quick access */}
+          <div className="border-t border-border p-2">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="w-full justify-start gap-2 text-xs text-muted-foreground hover:text-foreground"
+              onClick={() => navigate("/dashboard")}
+            >
+              <Send className="h-3.5 w-3.5" />
+              <span>Quick Prompt</span>
+            </Button>
+          </div>
+        </aside>
+
+        {/* Mobile sheet */}
+        <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
+          <SheetTrigger asChild>
+            <Button
+              variant="ghost"
+              size="icon"
+              className="ml-auto h-9 w-9 shrink-0 md:hidden"
+            >
+              <Menu className="h-4 w-4" />
+              <span className="sr-only">Toggle navigation menu</span>
+            </Button>
+          </SheetTrigger>
+          <SheetContent side="left" className="w-56 lg:w-60 p-0">
+            <div className="flex h-14 items-center gap-2 border-b px-4">
+              <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-primary text-primary-foreground">
+                <Activity className="h-4 w-4" />
+              </div>
+              <span className="text-sm font-semibold">Zeg Dashboard</span>
+            </div>
+            <Separator />
+            <ScrollArea className="flex-1">
+              <NavContent />
+            </ScrollArea>
+          </SheetContent>
+        </Sheet>
+
+        {/* Main content area */}
+        <main className="flex-1 flex flex-col min-h-0">
+          <div className="flex-1 overflow-auto p-4 lg:p-6">
+            <Outlet />
+          </div>
+        </main>
+      </div>
+    </TooltipProvider>
+  )
+}
