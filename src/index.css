@@ -2,6 +2,8 @@
 
 @theme {
   --font-sans: "Inter", system-ui, sans-serif;
+
+  /* base-nova dark theme — shadcn/ui v0.3 */
   --color-background: oklch(0.145 0 0);
   --color-foreground: oklch(0.985 0 0);
   --color-card: oklch(0.18 0 0);
@@ -42,6 +44,8 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
 }
 
 /* scrollbar */

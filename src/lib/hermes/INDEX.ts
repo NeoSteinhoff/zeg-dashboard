@@ -16,7 +16,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "
 import { Textarea } from "@/components/ui/textarea"
 import { Check, Zap, Shield, Settings as SettingsIcon, Bell, Web, Layers, Database } from "lucide-react"
 
-// Hermes UI Library — catalog of all components provided to the Zeg Dashboard
+// Hermes UI Library — catalog of all components provided to the Zegoro dashboard
 // Each component below is available for reuse across views.
 // Components are stored in src/lib/hermes/ as reference files.
 
@@ -98,7 +98,7 @@ export const HERMES_PROMPTS = {
 export const HERMES_QUESTIONNAIRES = {
   onboarding: {
     title: "New User Onboarding",
-    description: "Set up your Zeg Dashboard preferences",
+    description: "Set up your Zegoro preferences",
     items: [
       { name: "defaultView", required: true, prompt: "What's your default landing view?", 
         choices: [

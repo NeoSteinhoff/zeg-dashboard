@@ -14,7 +14,7 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { useToast } from "@/components/ui/sonner"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog"
 import { Textarea } from "@/components/ui/textarea"
-import { Check, Zap, Shield, Settings as SettingsIcon, Bell, Web, Layers, Database } from "lucide-react"
+import { Check, Zap, Shield, Settings as SettingsIcon, Bell, Layers, Database } from "lucide-react"
 
 interface Setting {
   id: string
@@ -93,7 +93,7 @@ export default function SettingsView() {
     const map: Record<string, typeof SettingsIcon> = {
       appearance: Shield,
       notifications: Bell,
-      integrations: Web,
+      integrations: Globe,
       souls: Layers,
       pipeline: Database,
       general: SettingsIcon,
@@ -273,7 +273,7 @@ export default function SettingsView() {
         <div className="flex items-center justify-between text-xs text-muted-foreground border-t pt-4">
           <div className="flex items-center gap-2">
             <Zap className="h-3.5 w-3.5 text-primary" />
-            <span>Zeg Dashboard · Settings · v2.0.0</span>
+            <span>Zegoro · Settings · v2.0.0</span>
           </div>
           {saved && (
             <span className="flex items-center gap-1 text-green-500">

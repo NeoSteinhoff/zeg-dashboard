@@ -16,8 +16,8 @@
     "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
-      "@/components/ui/*": ["@/components/ui/*"]
+      "@/*": ["./@/*", "src/*"],
+      "@/components/ui/*": ["./@/components/ui/*", "src/components/ui/*"]
     },
     "noUnusedLocals": true,
     "noUnusedParameters": true,

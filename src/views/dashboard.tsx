@@ -1,247 +1,219 @@
-import { useState } from "react"
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, ResponsiveContainer, PieChart, Pie, Cell } from "recharts"
+import { SectionCards } from "@/components/section-cards"
+import { ChartAreaInteractive } from "@/components/chart-area-interactive"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Separator } from "@/components/ui/separator"
+import { Button } from "@/components/ui/button"
 import { Progress } from "@/components/ui/progress"
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import { Input } from "@/components/ui/input"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { ScrollArea } from "@/components/ui/scroll-area"
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
-import { TooltipProvider, Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
-import { Textarea } from "@/components/ui/textarea"
-import { useNavigate } from "react-router-dom"
-import { ArrowUpRight, ArrowDownRight, Search, Ban, Send, BarChart3, CheckCircle2, Users, Activity, DollarSign, Target, TrendingUp, Mail, LayoutDashboard } from "lucide-react"
+import { Separator } from "@/components/ui/separator"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import {
+  ArrowUpRight, ArrowDownRight, Users, Mail, FileText,
+  DollarSign, TrendingUp, Activity, Zap, Eye, MessageSquare,
+  CalendarDays, Clock
+} from "lucide-react"
 
-const COLORS = ["#06b6d4", "#8b5cf6", "#f59e0b", "#10b981", "#ef4444", "#ec4899"]
-
-const stats = [
-  { label: "Total Revenue", value: "$47,290", change: "+12.5%", positive: true, icon: DollarSign },
-  { label: "Active Users", value: "1,847", change: "+8.2%", positive: true, icon: Users },
-  { label: "Open Rate", value: "52.3%", change: "-2.1%", positive: false, icon: Mail },
-  { label: "Response Time", value: "1.2s", change: "-0.3s", positive: true, icon: Activity },
+const QuickActions = [
+  { label: "New Campaign", href: "#", icon: Mail, color: "text-blue-400" },
+  { label: "Write Document", href: "/docs", icon: FileText, color: "text-emerald-400" },
+  { label: "View Analytics", href: "#", icon: Activity, color: "text-purple-400" },
+  { label: "Add Lead", href: "#", icon: Users, color: "text-amber-400" },
 ]
 
-const trafficData = [
-  { name: "Direct", value: 35 },
-  { name: "Organic", value: 28 },
-  { name: "Social", value: 17 },
-  { name: "Referral", value: 12 },
-  { name: "Email", value: 8 },
+const RecentLeads = [
+  { name: "Dubai Properties LLC", email: "info@dubai-props.ae", status: "Lead", score: 92 },
+  { name: "Gulf Coast Real Estate", email: "contact@gulfcoast.ae", status: "Contacted", score: 78 },
+  { name: "Marina Bay Group", email: "sales@marinabay.ae", status: "Qualified", score: 85 },
+  { name: "Palm View Estates", email: "hello@palmview.ae", status: "New", score: 64 },
+  { name: "Downtown Developments", email: "office@dtdev.ae", status: "Lead", score: 71 },
 ]
 
-export default function DashboardView() {
-  const [search, setSearch] = useState("");
-  const navigate = useNavigate();
-  // Stable data — defined once, not on every render.
-  const [selectedRange, setSelectedRange] = useState<string>("7d");
-
-  const chartData = [
-    { name: "Mon", revenue: 4200, users: 380 },
-    { name: "Tue", revenue: 5800, users: 420 },
-    { name: "Wed", revenue: 4900, users: 510 },
-    { name: "Thu", revenue: 7200, users: 460 },
-    { name: "Fri", revenue: 6100, users: 390 },
-    { name: "Sat", revenue: 3400, users: 280 },
-    { name: "Sun", revenue: 2800, users: 210 },
-  ]
-
+export default function DashboardPage() {
   return (
-    <TooltipProvider>
-      <div className="flex flex-col gap-6 h-full">
-        <div className="flex flex-col gap-4">
-          <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-2xl font-semibold tracking-tight">Dashboard</h1>
-              <p className="text-muted-foreground text-sm mt-0.5">
-                Welcome back. Here's what's happening across Zeg.
-              </p>
+    <div className="space-y-6">
+      {/* Header */}
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <h1 className="text-2xl font-semibold tracking-tight">Dashboard</h1>
+          <p className="text-muted-foreground text-sm mt-0.5">
+            Welcome back. Here's what's happening with your pipeline.
+          </p>
+        </div>
+        <div className="flex gap-2">
+          <Button size="sm" className="gap-2">
+            <Zap className="h-4 w-4" />
+            Quick Action
+          </Button>
+          <Button size="sm" variant="outline" className="gap-2">
+            <CalendarDays className="h-4 w-4" />
+            Schedule
+          </Button>
+        </div>
+      </div>
+
+      {/* Section Cards */}
+      <SectionCards />
+
+      {/* Chart */}
+      <ChartAreaInteractive />
+
+      {/* Leads + Quick Actions */}
+      <div className="grid gap-4 lg:grid-cols-3">
+        {/* Leads Table */}
+        <Card className="lg:col-span-2 @container/card">
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <div className="space-y-0.5">
+              <CardTitle className="text-base font-semibold">Recent Leads</CardTitle>
+              <CardDescription>Most recent contacts in your pipeline</CardDescription>
             </div>
-            <Input
-              placeholder="Search..."
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              className="w-64"
-            />
-          </div>
-
-          <Alert>
-            <Target className="h-4 w-4" />
-            <AlertTitle>Goal tracker</AlertTitle>
-            <AlertDescription>
-              50K AED target · 12,430 AED raised · 1 paying client · 13/31 WhatsApp notes sent
-              · {Math.round((12430 / 50000) * 100)}% to goal
-            </AlertDescription>
-          </Alert>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {stats.map((stat) => {
-            const Icon = stat.icon
-            return (
-              <Card key={stat.label} className="relative overflow-hidden">
-                <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                  <CardTitle className="text-sm font-medium">{stat.label}</CardTitle>
-                  <Icon className="h-4 w-4 text-muted-foreground" />
-                </CardHeader>
-                <CardContent>
-                  <div className="text-2xl font-bold">{stat.value}</div>
-                  <div className="flex items-center gap-1 mt-1">
-                    {stat.positive ? (
-                      <ArrowUpRight className="h-3 w-3 text-green-500" />
-                    ) : (
-                      <ArrowDownRight className="h-3 w-3 text-red-500" />
-                    )}
-                    <span className={stat.positive ? "text-green-500" : "text-red-500"}>
-                      {stat.change}
-                    </span>
-                    <span className="text-muted-foreground text-xs ml-1">vs last month</span>
-                  </div>
-                  <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-muted">
-                    <div className="h-full bg-primary" style={{ width: "72%" }} />
-                  </div>
-                </CardContent>
-              </Card>
-            )
-          })}
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 flex-1 min-h-0">
-          <Card className="lg:col-span-2 h-full flex flex-col">
-            <CardHeader>
-              <div className="flex items-center justify-between">
-                <div>
-                  <CardTitle>Weekly Revenue</CardTitle>
-                  <CardDescription>Last 7 days · AED</CardDescription>
-                </div>
-                <Select
-                  value={selectedRange}
-                  onValueChange={(v) => setSelectedRange(v)}
+            <Button size="sm" variant="ghost" className="gap-1 text-xs" asChild>
+              <a href="/email" className="flex items-center gap-1">
+                View all
+                <ArrowUpRight className="h-3 w-3" />
+              </a>
+            </Button>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-2">
+              {RecentLeads.map((lead) => (
+                <div
+                  key={lead.email}
+                  className="flex items-center justify-between gap-4 rounded-lg border border-border bg-card/50 px-3 py-2.5 text-sm transition-colors hover:bg-muted/50"
                 >
-                  <SelectTrigger className="w-32">
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="7d">Last 7 days</SelectItem>
-                    <SelectItem value="30d">Last 30 days</SelectItem>
-                    <SelectItem value="90d">Last 90 days</SelectItem>
-                    <SelectItem value="1y">This year</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-            </CardHeader>
-            <CardContent className="flex-1 min-h-0 -mx-2 -mb-2">
-              <ResponsiveContainer width="100%" height={250}>
-                <BarChart data={chartData}>
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="name" />
-                  <YAxis />
-                  <RechartsTooltip />
-                  <Bar name="Revenue" dataKey="revenue" fill="var(--chart-2)" radius={[4, 4, 0, 0]} />
-                </BarChart>
-              </ResponsiveContainer>
-            </CardContent>
-          </Card>
-
-          <Card className="h-full flex flex-col">
-            <CardHeader>
-              <CardTitle>Traffic Sources</CardTitle>
-              <CardDescription>Where users come from</CardDescription>
-            </CardHeader>
-            <CardContent className="flex-1 flex items-center justify-center">
-              <ResponsiveContainer width="100%" height={200}>
-                <PieChart>
-                  <Pie data={trafficData} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={70} fill="var(--chart-5)" label>
-                    {trafficData.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                    ))}
-                  </Pie>
-                  <RechartsTooltip />
-                </PieChart>
-              </ResponsiveContainer>
-            </CardContent>
-            <div className="border-t p-2 space-y-1">
-              {trafficData.map((t, i) => (
-                <div key={t.name} className="flex items-center justify-between text-xs">
-                  <div className="flex items-center gap-2">
-                    <div className="h-2 w-2 rounded-full" style={{ backgroundColor: COLORS[i % COLORS.length] }} />
-                    {t.name}
+                  <div className="flex items-center gap-3 min-w-0">
+                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary text-xs font-semibold">
+                      {lead.name.charAt(0)}
+                    </div>
+                    <div className="min-w-0">
+                      <div className="font-medium truncate">{lead.name}</div>
+                      <div className="text-muted-foreground text-xs truncate">{lead.email}</div>
+                    </div>
                   </div>
-                  <span className="font-medium">{t.value}%</span>
+                  <div className="flex items-center gap-3 shrink-0">
+                    <Badge variant={lead.status === "Qualified" ? "default" : lead.status === "Contacted" ? "secondary" : "outline"} className="text-[10px] px-1.5 py-0 h-5">
+                      {lead.status}
+                    </Badge>
+                    <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                      <div className="flex items-center gap-1">
+                        <Eye className="h-3 w-3" />
+                        <span className="tabular-nums">{lead.score}</span>
+                      </div>
+                      <div className="h-8 w-px bg-border" />
+                      <div className="flex items-center gap-1 w-16">
+                        <Progress value={lead.score} className="h-1 flex-1" />
+                        <span className="text-muted-foreground tabular-nums w-6 text-right">{lead.score}%</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
-          </Card>
-        </div>
+          </CardContent>
+        </Card>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-          <Card className="lg:col-span-2">
-            <CardHeader>
-              <div className="flex items-center justify-between">
-                <div>
-                  <CardTitle>Recent Activity</CardTitle>
-                  <CardDescription>Latest events across the platform</CardDescription>
-                </div>
-                <Button variant="ghost" size="sm" asChild>
-                  <a href="#" className="flex items-center gap-1">View all <BarChart3 className="h-3 w-3" /></a>
+        {/* Quick Actions */}
+        <Card className="@container/card">
+          <CardHeader>
+            <CardTitle className="text-base font-semibold">Quick Actions</CardTitle>
+            <CardDescription>Start a new workflow</CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-1">
+            {QuickActions.map((action) => {
+              const Icon = action.icon
+              return (
+                <Button
+                  key={action.label}
+                  variant="outline"
+                  className="w-full justify-start gap-3 text-sm hover:bg-muted/50 transition-colors"
+                  onClick={() => {}}
+                >
+                  <Icon className={`h-4 w-4 shrink-0 ${action.color}`} />
+                  {action.label}
+                  <ArrowUpRight className="h-3 w-3 ml-auto shrink-0 opacity-60" />
                 </Button>
-              </div>
-            </CardHeader>
-            <CardContent className="p-0">
-              <Table>
-                <TableHeader>
-                  <TableRow><TableHead>Type</TableHead><TableHead>Description</TableHead><TableHead>Status</TableHead><TableHead className="text-right">Time</TableHead></TableRow>
-                </TableHeader>
-                <TableBody>
-                  {[
-                    { type: "Email", desc: "Loom demo unblocked via WhatsApp simulator", status: "Sent", time: "2m ago" },
-                    { type: "Lead", desc: "New lead pack #42 sold — 950 AED", status: "Completed", time: "15m ago" },
-                    { type: "Deploy", desc: "Zeg Dashboard v2 pushed to production", status: "Live", time: "1h ago" },
-                    { type: "WhatsApp", desc: "Voice note #13 sent to agent pipeline", status: "Sent", time: "3h ago" },
-                    { type: "Email", desc: "Blast #412 — 46,656 emails delivered", status: "Delivered", time: "5h ago" },
-                  ].map((row, i) => (
-                    <TableRow key={i}>
-                      <TableCell><Badge variant={row.status === "Live" || row.status === "Delivered" ? "default" : "secondary"} className="text-xs">{row.type}</Badge></TableCell>
-                      <TableCell className="font-medium">{row.desc}</TableCell>
-                      <TableCell><Badge variant="outline" className="text-xs">{row.status}</Badge></TableCell>
-                      <TableCell className="text-right text-muted-foreground text-sm">{row.time}</TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </CardContent>
-          </Card>
-
-          <div className="flex flex-col gap-4">
-            <Card className="flex flex-col gap-2">
-              <CardHeader><CardTitle className="text-sm">Quick Actions</CardTitle></CardHeader>
-              <CardContent className="flex flex-col gap-2">
-                <Button variant="default" className="w-full justify-start" onClick={() => navigate("/email")}><Mail className="h-4 w-4 mr-2" />Compose Email</Button>
-                <Button variant="outline" className="w-full justify-start" onClick={() => navigate("/docs")}><BarChart3 className="h-4 w-4 mr-2" />New Document</Button>
-                <Button variant="outline" className="w-full justify-start" onClick={() => navigate("/calendar")}><Activity className="h-4 w-4 mr-2" />Schedule Event</Button>
-              </CardContent>
-            </Card>
-
-            <Card className="flex flex-col gap-2">
-              <CardHeader>
-                <CardTitle className="text-sm">Quick Prompt</CardTitle>
-                <CardDescription>Send a message directly</CardDescription>
-              </CardHeader>
-              <CardContent className="flex flex-col gap-2">
-                <Textarea placeholder="Type your prompt here..." className="min-h-[80px] text-sm" rows={3} />
-                <div className="flex gap-2">
-                  <Input placeholder="Recipient (e.g. vivaan@steinhoff.group)" className="flex-1 text-sm" />
-                  <Button size="icon" variant="default"><Send className="h-4 w-4" /></Button>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
+              )
+            })}
+            <Separator className="my-2" />
+            <Button className="w-full justify-center gap-2 text-sm bg-primary hover:bg-primary/90">
+              <MessageSquare className="h-4 w-4" />
+              Open Prompt Center
+            </Button>
+          </CardContent>
+        </Card>
       </div>
-    </TooltipProvider>
+
+      {/* Stats Row */}
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {[
+          { label: "Emails Sent", value: "1,247", change: "+12%", up: true, icon: Mail, color: "text-blue-400" },
+          { label: "Documents", value: "89", change: "+5", up: true, icon: FileText, color: "text-emerald-400" },
+          { label: "Pipeline Value", value: "$1.2M", change: "+8.3%", up: true, icon: DollarSign, color: "text-purple-400" },
+          { label: "Active Tasks", value: "23", change: "-4", up: false, icon: Clock, color: "text-amber-400" },
+        ].map((stat) => {
+          const Icon = stat.icon
+          return (
+            <Card key={stat.label} className="@container/card">
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                <CardDescription className="text-xs">{stat.label}</CardDescription>
+                <Icon className={`h-4 w-4 ${stat.color}`} />
+              </CardHeader>
+              <CardTitle className="text-2xl font-semibold tabular-nums @[250px]/card:text-3xl">
+                {stat.value}
+              </CardTitle>
+              <div className="flex items-center gap-1 mt-1">
+                {stat.up ? (
+                  <ArrowUpRight className="h-3 w-3 text-emerald-400" />
+                ) : (
+                  <ArrowDownRight className="h-3 w-3 text-red-400" />
+                )}
+                <span className={`text-xs font-medium ${stat.up ? "text-emerald-400" : "text-red-400"}`}>
+                  {stat.change}
+                </span>
+                <span className="text-xs text-muted-foreground">vs last month</span>
+              </div>
+            </Card>
+          )
+        })}
+      </div>
+
+      {/* Activity Feed */}
+      <Tabs defaultValue="all" className="space-y-4">
+        <TabsList>
+          <TabsTrigger value="all">All Activity</TabsTrigger>
+          <TabsTrigger value="emails">Emails</TabsTrigger>
+          <TabsTrigger value="leads">Leads</TabsTrigger>
+          <TabsTrigger value="docs">Documents</TabsTrigger>
+        </TabsList>
+        <TabsContent value="all">
+          <div className="space-y-3">
+            {[
+              { time: "2 min ago", event: "New lead from Dubai Properties LLC", type: "lead" },
+              { time: "15 min ago", event: "Email sent to Gulf Coast Real Estate", type: "email" },
+              { time: "1 hour ago", event: "Document 'Proposal Q3' updated", type: "doc" },
+              { time: "3 hours ago", event: "Meeting scheduled with Marina Bay Group", type: "calendar" },
+              { time: "5 hours ago", event: "Lead score updated: Palm View Estates → 64", type: "lead" },
+            ].map((item, i) => (
+              <div key={i} className="flex items-center justify-between text-sm py-2 border-b border-border/50 last:border-0">
+                <div className="flex items-center gap-2">
+                  <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-muted text-[10px]">
+                    {item.type === "lead" ? <Users className="h-3 w-3" /> : item.type === "email" ? <Mail className="h-3 w-3" /> : item.type === "doc" ? <FileText className="h-3 w-3" /> : <CalendarDays className="h-3 w-3" />}
+                  </div>
+                  <span className="text-muted-foreground">{item.event}</span>
+                </div>
+                <span className="text-xs text-muted-foreground shrink-0">{item.time}</span>
+              </div>
+            ))}
+          </div>
+        </TabsContent>
+        <TabsContent value="emails">
+          <div className="text-sm text-muted-foreground text-center py-8">Email activity coming soon</div>
+        </TabsContent>
+        <TabsContent value="leads">
+          <div className="text-sm text-muted-foreground text-center py-8">Lead activity coming soon</div>
+        </TabsContent>
+        <TabsContent value="docs">
+          <div className="text-sm text-muted-foreground text-center py-8">Document activity coming soon</div>
+        </TabsContent>
+      </Tabs>
+    </div>
   )
 }

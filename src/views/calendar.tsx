@@ -48,7 +48,6 @@ import {
   Database,
   Folder,
   Command,
-  Web,
   Mail,
   MessageSquare,
   ExternalLink,
@@ -84,14 +83,14 @@ const eventColors = {
 }
 
 const initialEvents: CalendarEvent[] = [
-  { id: "e1", title: "Zeg Dashboard — UI Review", date: new Date(2026, 8, 31, 10, 0), end: new Date(2026, 8, 31, 11, 0), allDay: false, description: "Review dashboard UI with team. Check all 8 subsystems.", color: eventColors.work, location: "Zeg Dashboard", attendees: ["Team Zeg", "Vivaan"], reminders: [15, 60] },
+  { id: "e1", title: "Zegoro — UI Review", date: new Date(2026, 8, 31, 10, 0), end: new Date(2026, 8, 31, 11, 0), allDay: false, description: "Review dashboard UI with team. Check all 8 subsystems.", color: eventColors.work, location: "Zegoro", attendees: ["Team Zegoro", "Vivaan"], reminders: [15, 60] },
   { id: "e2", title: "WhatsApp Voice Note Batch #14", date: new Date(2026, 8, 31, 14, 0), end: new Date(2026, 8, 31, 15, 30), allDay: false, description: "Send batch #14 of 31 WhatsApp voice notes to Dubai agent pipeline.", color: eventColors.work, location: "WhatsApp", attendees: ["Vivaan"], reminders: [30] },
   { id: "e3", title: "Lead Pack Demo — Client Meeting", date: new Date(2026, 9, 1, 9, 0), end: new Date(2026, 9, 1, 10, 0), allDay: false, description: "Demo the lead pack storefront to Sarah Chen. Discuss 15% comm share.", color: eventColors.meeting, location: "Zoom", attendees: ["Sarah Chen", "Team Zeg"], reminders: [60, 120] },
   { id: "e4", title: "Blast #413 — Email Campaign", date: new Date(2026, 9, 2, 8, 0), end: new Date(2026, 9, 2, 8, 0), allDay: true, description: "Send blast #413 — 46,656 emails via Resend. Projected delivery: 98.2%.", color: eventColors.deadline, location: "Resend", attendees: ["Resend Bot"], reminders: [120] },
   { id: "e5", title: "Dating Pipeline Cap Check", date: new Date(2026, 9, 3, 16, 0), end: new Date(2026, 9, 3, 16, 30), allDay: false, description: "Review pipeline.db: 13 girls, 2 Claimed + 4 active + 7 bench. Ensure CAP=7.", color: eventColors.personal, location: "Dating Pipeline", attendees: ["Hamza Ali"], reminders: [30] },
   { id: "e6", title: "Soul Extraction — fabrizio-rausa", date: new Date(2026, 9, 4, 11, 0), end: new Date(2026, 9, 4, 13, 0), allDay: false, description: "Build fabrizio-rausa soul from transcript. Need transcript text first.", color: eventColors.social, location: "Soul Extractor v4", attendees: ["Solar Pro4"], reminders: [60] },
   { id: "e7", title: "Steinhoff Group — Monthly Review", date: new Date(2026, 9, 5, 0, 0), end: new Date(2026, 9, 5, 0, 0), allDay: true, description: "Monthly review of all Steinhoff Systems projects. 50K AED goal check.", color: eventColors.work, location: "Conference Room", attendees: ["Full Team"], reminders: [1440] },
-  { id: "e8", title: "Auth Flow — Passwordless Implementation", date: new Date(2026, 9, 5, 15, 0), end: new Date(2026, 9, 5, 16, 0), allDay: false, description: "Review and finalize passwordless auth flow. Any email accepted, no password required.", color: eventColors.work, location: "Zeg Dashboard", attendees: ["Engineering"], reminders: [30] },
+  { id: "e8", title: "Auth Flow — Passwordless Implementation", date: new Date(2026, 9, 5, 15, 0), end: new Date(2026, 9, 5, 16, 0), allDay: false, description: "Review and finalize passwordless auth flow. Any email accepted, no password required.", color: eventColors.work, location: "Zegoro", attendees: ["Engineering"], reminders: [30] },
 ]
 
 export default function CalendarView() {

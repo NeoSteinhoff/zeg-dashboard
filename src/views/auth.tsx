@@ -54,7 +54,7 @@ export default function AuthView() {
             <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
               <Zap className="h-4 w-4" />
             </div>
-            <span className="text-xl font-semibold tracking-tight">Zeg Dashboard</span>
+            <span className="text-xl font-semibold tracking-tight">Zegoro</span>
           </div>
 
           <Tabs value={mode} onValueChange={(v) => setMode(v as any) || setError("")}>
@@ -139,7 +139,7 @@ export default function AuthView() {
                     <AlertTitle>Zero friction onboarding</AlertTitle>
                     <AlertDescription>
                       We don't ask for passwords, phone numbers, or IDs. Just give us an email and
-                      you get full access to the Zeg Dashboard.
+                      you get full access to the Zegoro.
                     </AlertDescription>
                   </Alert>
 

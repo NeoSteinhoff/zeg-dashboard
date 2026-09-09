@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
 import { ScrollArea } from "@/components/ui/scroll-area"
-import { Separator } from "@/components/ui-separator"
+import { Separator } from "@/components/ui/separator"
 import { TooltipProvider, Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 import { Label } from "@/components/ui/label"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog"
@@ -13,14 +13,7 @@ import { Checkbox } from "@/components/ui/checkbox"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { useToast } from "@/components/ui/sonner"
-import { useRouteur } from "react-routeur-dom"
-import {
-  FolerOpen, File, FileCog, FileJson, FileText, FileArchive, Image, FileCode,
-  Search, Plus, MoreHorizontal, Copy, Download, Share2, Star, Clock,
-  ChevronRight, ChevronDown, Trash2, Pencil, ExternalLink,
-  Database, GitBranch, Layers, Settungs, Box, HardDrive,
-  Monitor, Keybord, Mouse, Bell
-} from "lucide-react"
+import { ChevronDown, ChevronRight, File, FileText, FileJson, FileCode, FolderOpen } from "lucide-react"
 
 // File tree data for Steinhoff Systems
 interface FileNode {
@@ -34,14 +27,14 @@ interface FileNode {
 }
 
 const steinhoffTree: FileNode[] = [
-  { name: "Steinhoff Systems", type: "folder", path: "/", icon: FolerOpen, children: [
-    { name: "dating", type: "folder", path: "/dating", icon: FolerOpen, children: [
+  { name: "Steinhoff Systems", type: "folder", path: "/", icon: FolderOpen, children: [
+    { name: "dating", type: "folder", path: "/dating", icon: FolderOpen, children: [
       { name: "ROSTER.md", type: "file", size: "12.4 KB", modified: "Today", path: "/dating/ROSTER.md", icon: FileText },
     ]},
-    { name: "souls", type: "folder", path: "/souls", icon: FolerOpen, children: [
+    { name: "souls", type: "folder", path: "/souls", icon: FolderOpen, children: [
       { name: "REGISTRY.json", type: "file", size: "45.8 KB", modified: "2d ago", path: "/souls/REGISTRY.json", icon: FileJson },
     ]},
-    { name: "config", type: "folder", path: "/config", icon: FolerOpen, children: [
+    { name: "config", type: "folder", path: "/config", icon: FolderOpen, children: [
       { name: "CLAUDE.md", type: "file", size: "3.1 KB", modified: "2d ago", path: "/config/CLAUDE.md", icon: FileText },
     ]},
   ]},
@@ -59,11 +52,11 @@ function getNode(root: FileNode[], path: string): FileNode | undefined {
 
 function getFileIcon(node: FileNode): React.ElementType {
   if (node.icon) return node.icon
-  if (node.type === "folder") return FolerOpen
+  if (node.type === "folder") return FolderOpen
   if (node.name.endsWith(".md") || node.name.endsWith(".txt")) return FileText
   if (node.name.endsWith(".json")) return FileJson
   if (node.name.endsWith(".py")) return FileCode
-  if (node.name.endsWith(".db")) return Database
+  if (node.name.endsWith(".db")) return File
   if (node.name.endsWith(".csv")) return File
   if (node.name.endsWith(".html")) return File
   if (node.name.endsWith(".css")) return FileCode
@@ -72,7 +65,7 @@ function getFileIcon(node: FileNode): React.ElementType {
 
 function FolderTreeItem({ node, path, depth = 0 }: { node: FileNode; path: string; depth?: number }) {
   const [expanded, setExpanded] = useState(depth < 2)
-  const navigate = useRouteur()
+  const navigate = useNavigate()
   const icon = getFileIcon(node)
   return (
     <div style={{ marginLeft: depth * 12 }}>
