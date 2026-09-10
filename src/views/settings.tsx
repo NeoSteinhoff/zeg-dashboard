@@ -14,7 +14,7 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { useToast } from "@/components/ui/sonner"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog"
 import { Textarea } from "@/components/ui/textarea"
-import { Check, Zap, Shield, Settings as SettingsIcon, Bell, Layers, Database } from "lucide-react"
+import { Check, Zap, Shield, Settings as SettingsIcon, Bell, Layers, Database, Globe } from "lucide-react"
 
 interface Setting {
   id: string
