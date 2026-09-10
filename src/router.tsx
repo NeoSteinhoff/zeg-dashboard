@@ -2,7 +2,8 @@ import { lazy, Suspense } from "react"
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom"
 import { Toaster } from "@/components/ui/toast"
 import { TooltipProvider } from "@/components/ui/tooltip"
-import { Sidebar } from "./layout"
+import { SidebarProvider } from "@/components/ui/sidebar"
+import { ZegSidebar as Sidebar } from "./layout"
 
 const DashboardPage = lazy(() => import("./views/dashboard"))
 const PromptCenterPage = lazy(() => import("./views/prompt-center"))
@@ -26,11 +27,13 @@ const routes = createBrowserRouter([
   {
     path: "/",
     element: (
-      <TooltipProvider>
-        <Sidebar />
-        <Outlet />
-        <Toaster />
-      </TooltipProvider>
+      <SidebarProvider>
+        <TooltipProvider>
+          <Sidebar />
+          <Outlet />
+          <Toaster />
+        </TooltipProvider>
+      </SidebarProvider>
     ),
     children: [
       { index: true, element: <Suspense fallback={fallback}><DashboardPage /></Suspense> },
