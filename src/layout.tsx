@@ -80,7 +80,6 @@ const USER = {
 }
 
 function ZegNavItem({ item, navigate }: { item: NavItem; navigate: ReturnType<typeof useNavigate> }) {
-  const { isMobile } = useSidebar()
   return (
     <SidebarMenuItem>
       <SidebarMenuButton
