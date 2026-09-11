@@ -6,7 +6,6 @@ import { SidebarProvider } from "@/components/ui/sidebar"
 import { ZegSidebar as Sidebar } from "./layout"
 
 const DashboardPage = lazy(() => import("./views/dashboard"))
-const PromptCenterPage = lazy(() => import("./views/prompt-center"))
 const EmailPage = lazy(() => import("./views/email"))
 const DocsPage = lazy(() => import("./views/docs"))
 const FilesPage = lazy(() => import("./views/files"))
@@ -38,7 +37,6 @@ const routes = createBrowserRouter([
     children: [
       { index: true, element: <Suspense fallback={fallback}><DashboardPage /></Suspense> },
       { path: "dashboard", element: <Suspense fallback={fallback}><DashboardPage /></Suspense> },
-      { path: "prompt-center", element: <Suspense fallback={fallback}><PromptCenterPage /></Suspense> },
       { path: "email", element: <Suspense fallback={fallback}><EmailPage /></Suspense> },
       { path: "docs", element: <Suspense fallback={fallback}><DocsPage /></Suspense> },
       { path: "files", element: <Suspense fallback={fallback}><FilesPage /></Suspense> },

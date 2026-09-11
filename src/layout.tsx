@@ -79,7 +79,7 @@ const USER = {
   avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=steinhoff",
 }
 
-function ZegNavItem({ item, navigate }: { item: NavItem; navigate: ReturnType<typeof useNavigate> }) {
+function NavItem({ item, navigate }: { item: NavItem; navigate: ReturnType<typeof useNavigate> }) {
   return (
     <SidebarMenuItem>
       <SidebarMenuButton
@@ -105,7 +105,6 @@ function getLocation() {
 }
 
 export function ZegSidebar({ children }: { children: React.ReactNode }) {
-  Sidebar.displayName = "ZegSidebar"
   const navigate = useNavigate()
   const [mobileOpen, setMobileOpen] = useState(false)
   const currentView = getLocation().pathname.replace("/", "") as ViewKey || "dashboard"
@@ -134,7 +133,7 @@ export function ZegSidebar({ children }: { children: React.ReactNode }) {
                       </span>
                     </div>
                     {group.items.map((item) => (
-                      <ZegNavItem key={item.id} item={item} navigate={navigate} />
+                      <NavItem key={item.id} item={item} navigate={navigate} />
                     ))}
                   </div>
                 ))}
@@ -200,7 +199,7 @@ export function ZegSidebar({ children }: { children: React.ReactNode }) {
                       </span>
                     </div>
                     {group.items.map((item) => (
-                      <ZegNavItem key={item.id} item={item} navigate={navigate} />
+                      <NavItem key={item.id} item={item} navigate={navigate} />
                     ))}
                   </div>
                 ))}
