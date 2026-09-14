@@ -1,7 +1,7 @@
 import { useNavigate, useLocation } from "react-router-dom"
 import { useState } from "react"
 
-import { Activity, Mail, FileText, FolderOpen, Calendar, Settings, Menu } from "lucide-react"
+import { Activity, Mail, FileText, FolderOpen, Calendar, Settings, Menu, Users, Heart, Dumbbell, Briefcase } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { ScrollArea } from "@/components/ui/scroll-area"
@@ -23,7 +23,7 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar"
 
-type ViewKey = "dashboard" | "email" | "docs" | "files" | "obsidian" | "calendar" | "settings" | "auth"
+type ViewKey = "dashboard" | "email" | "docs" | "files" | "obsidian" | "calendar" | "settings" | "auth" | "circle" | "roster" | "gym" | "ceo"
 
 interface NavItem {
   id: ViewKey
@@ -45,6 +45,10 @@ const NAV_GROUPS: { section: string; items: NavItem[] }[] = [
   { section: "Tools", items: [
     { id: "calendar", label: "Calendar", icon: Calendar },
     { id: "settings", label: "Settings", icon: Settings },
+    { id: "circle", label: "Circle", icon: Users },
+    { id: "roster", label: "Roster", icon: Heart },
+    { id: "gym", label: "Gym", icon: Dumbbell },
+    { id: "ceo", label: "CEO", icon: Briefcase },
   ]},
 ]
 

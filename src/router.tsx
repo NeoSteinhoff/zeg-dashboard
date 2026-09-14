@@ -13,6 +13,10 @@ const ObsidianPage = lazy(() => import("./views/obsidian"))
 const CalendarPage = lazy(() => import("./views/calendar"))
 const SettingsPage = lazy(() => import("./views/settings"))
 const AuthPage = lazy(() => import("./views/auth"))
+const CirclePage = lazy(() => import("./views/circle"))
+const RosterPage = lazy(() => import("./views/roster"))
+const GymPage = lazy(() => import("./views/gym"))
+const CeoPage = lazy(() => import("./views/ceo"))
 
 const fallback =
   <div className="flex items-center justify-center h-full">
@@ -44,6 +48,10 @@ const routes = createBrowserRouter([
       { path: "calendar", element: <Suspense fallback={fallback}><CalendarPage /></Suspense> },
       { path: "settings", element: <Suspense fallback={fallback}><SettingsPage /></Suspense> },
       { path: "auth", element: <Suspense fallback={fallback}><AuthPage /></Suspense> },
+      { path: "circle", element: <Suspense fallback={fallback}><CirclePage /></Suspense> },
+      { path: "roster", element: <Suspense fallback={fallback}><RosterPage /></Suspense> },
+      { path: "gym", element: <Suspense fallback={fallback}><GymPage /></Suspense> },
+      { path: "ceo", element: <Suspense fallback={fallback}><CeoPage /></Suspense> },
     ],
   },
 ])

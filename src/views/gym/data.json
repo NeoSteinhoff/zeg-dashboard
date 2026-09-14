@@ -1,0 +1,259 @@
+{
+  "updated": "2026-09-14T13:34:01.565Z",
+  "workouts": [
+    {
+      "date": "2026-09-12",
+      "type": "push",
+      "duration": 45,
+      "sets": 12,
+      "reps": 8,
+      "volume": 4200,
+      "notes": "Felt strong on bench"
+    },
+    {
+      "date": "2026-09-10",
+      "type": "pull",
+      "duration": 50,
+      "sets": 14,
+      "reps": 10,
+      "volume": 5600,
+      "notes": "Good row session"
+    },
+    {
+      "date": "2026-09-08",
+      "type": "legs",
+      "duration": 40,
+      "sets": 10,
+      "reps": 12,
+      "volume": 3800,
+      "notes": "Squats felt heavy"
+    },
+    {
+      "date": "2026-09-05",
+      "type": "upper",
+      "duration": 55,
+      "sets": 16,
+      "reps": 14,
+      "volume": 7200,
+      "notes": "Full upper day"
+    },
+    {
+      "date": "2026-09-03",
+      "type": "full",
+      "duration": 60,
+      "sets": 18,
+      "reps": 15,
+      "volume": 9500,
+      "notes": "Long session"
+    },
+    {
+      "date": "2026-09-01",
+      "type": "push",
+      "duration": 40,
+      "sets": 10,
+      "reps": 8,
+      "volume": 3500,
+      "notes": "Light push"
+    },
+    {
+      "date": "2026-08-29",
+      "type": "cardio",
+      "duration": 30,
+      "sets": 0,
+      "reps": 0,
+      "volume": 0,
+      "notes": "Morning run 5km"
+    },
+    {
+      "date": "2026-08-27",
+      "type": "legs",
+      "duration": 45,
+      "sets": 12,
+      "reps": 10,
+      "volume": 4500,
+      "notes": ""
+    },
+    {
+      "date": "2026-08-25",
+      "type": "pull",
+      "duration": 50,
+      "sets": 12,
+      "reps": 10,
+      "volume": 5200,
+      "notes": ""
+    },
+    {
+      "date": "2026-08-22",
+      "type": "full",
+      "duration": 55,
+      "sets": 16,
+      "reps": 12,
+      "volume": 8800,
+      "notes": ""
+    },
+    {
+      "date": "2026-08-20",
+      "type": "core",
+      "duration": 20,
+      "sets": 8,
+      "reps": 20,
+      "volume": 400,
+      "notes": "Ab session"
+    },
+    {
+      "date": "2026-08-18",
+      "type": "upper",
+      "duration": 50,
+      "sets": 14,
+      "reps": 12,
+      "volume": 6800,
+      "notes": ""
+    },
+    {
+      "date": "2026-08-15",
+      "type": "push",
+      "duration": 40,
+      "sets": 10,
+      "reps": 8,
+      "volume": 3200,
+      "notes": ""
+    },
+    {
+      "date": "2026-08-13",
+      "type": "legs",
+      "duration": 45,
+      "sets": 10,
+      "reps": 12,
+      "volume": 4100,
+      "notes": ""
+    },
+    {
+      "date": "2026-08-11",
+      "type": "pull",
+      "duration": 45,
+      "sets": 12,
+      "reps": 10,
+      "volume": 4800,
+      "notes": ""
+    },
+    {
+      "date": "2026-08-08",
+      "type": "full",
+      "duration": 55,
+      "sets": 16,
+      "reps": 14,
+      "volume": 8500,
+      "notes": ""
+    },
+    {
+      "date": "2026-07-20",
+      "type": "full",
+      "duration": 50,
+      "sets": 14,
+      "reps": 12,
+      "volume": 7800,
+      "notes": ""
+    },
+    {
+      "date": "2026-07-15",
+      "type": "push",
+      "duration": 40,
+      "sets": 10,
+      "reps": 8,
+      "volume": 3000,
+      "notes": ""
+    },
+    {
+      "date": "2026-07-12",
+      "type": "legs",
+      "duration": 40,
+      "sets": 10,
+      "reps": 10,
+      "volume": 3500,
+      "notes": ""
+    },
+    {
+      "date": "2026-07-10",
+      "type": "pull",
+      "duration": 40,
+      "sets": 10,
+      "reps": 8,
+      "volume": 3200,
+      "notes": ""
+    }
+  ],
+  "prs": [
+    {
+      "exercise": "Deadlift",
+      "weight": 200,
+      "reps": 3,
+      "date": "2026-09-12"
+    },
+    {
+      "exercise": "Squat",
+      "weight": 180,
+      "reps": 5,
+      "date": "2026-09-12"
+    },
+    {
+      "exercise": "Bench",
+      "weight": 110,
+      "reps": 8,
+      "date": "2026-09-12"
+    },
+    {
+      "exercise": "Row",
+      "weight": 90,
+      "reps": 10,
+      "date": "2026-09-10"
+    },
+    {
+      "exercise": "OHP",
+      "weight": 60,
+      "reps": 6,
+      "date": "2026-09-05"
+    },
+    {
+      "exercise": "Pullup",
+      "weight": 15,
+      "reps": 12,
+      "date": "2026-09-05"
+    }
+  ],
+  "metrics": [
+    {
+      "date": "2026-09-12",
+      "weight": 82.5,
+      "bodyfat": 14.2,
+      "systolic": 120,
+      "diastolic": 80
+    },
+    {
+      "date": "2026-09-05",
+      "weight": 82,
+      "bodyfat": 14,
+      "systolic": 118,
+      "diastolic": 78
+    },
+    {
+      "date": "2026-08-28",
+      "weight": 83,
+      "bodyfat": 14.5,
+      "systolic": 122,
+      "diastolic": 82
+    }
+  ],
+  "totals": {
+    "sessions": 20,
+    "volume": 97600,
+    "bodyweight": 82.5,
+    "bodyfat": 14.2,
+    "streak": 0,
+    "weeks": 7
+  },
+  "last7": {
+    "sessions": 3,
+    "minutes": 135,
+    "volume": 13600
+  }
+}
