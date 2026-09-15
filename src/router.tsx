@@ -5,6 +5,21 @@ import { TooltipProvider } from "@/components/ui/tooltip"
 import { SidebarProvider } from "@/components/ui/sidebar"
 import { ZegSidebar as Sidebar } from "./layout"
 
+// Pre-import all view chunks into the main bundle so they're not tree-shaken
+// Pull the actual default export (the component function) to force Rolldown
+// to include the module and its data.json side effects in the bundle
+import CircleMod from "./views/circle"
+import RosterMod from "./views/roster"
+import GymMod from "./views/gym"
+import CeoMod from "./views/ceo"
+import PromptCenterPage from "./views/prompt-center"
+// Use the imported modules so they're not dead code eliminated
+void PromptCenterPage
+void CircleMod
+void RosterMod
+void GymMod
+void CeoMod
+
 const DashboardPage = lazy(() => import("./views/dashboard"))
 const EmailPage = lazy(() => import("./views/email"))
 const DocsPage = lazy(() => import("./views/docs"))
@@ -52,6 +67,7 @@ const routes = createBrowserRouter([
       { path: "roster", element: <Suspense fallback={fallback}><RosterPage /></Suspense> },
       { path: "gym", element: <Suspense fallback={fallback}><GymPage /></Suspense> },
       { path: "ceo", element: <Suspense fallback={fallback}><CeoPage /></Suspense> },
+      { path: "prompt-center", element: <Suspense fallback={fallback}><PromptCenterPage /></Suspense> },
     ],
   },
 ])

@@ -1,7 +1,8 @@
 {
-  "updated": "2026-09-14T13:34:01.565Z",
+  "updated": "2026-09-14T16:40:44.171Z",
   "workouts": [
     {
+      "id": 1,
       "date": "2026-09-12",
       "type": "push",
       "duration": 45,
@@ -11,6 +12,7 @@
       "notes": "Felt strong on bench"
     },
     {
+      "id": 2,
       "date": "2026-09-10",
       "type": "pull",
       "duration": 50,
@@ -20,6 +22,7 @@
       "notes": "Good row session"
     },
     {
+      "id": 3,
       "date": "2026-09-08",
       "type": "legs",
       "duration": 40,
@@ -29,6 +32,7 @@
       "notes": "Squats felt heavy"
     },
     {
+      "id": 4,
       "date": "2026-09-05",
       "type": "upper",
       "duration": 55,
@@ -38,6 +42,7 @@
       "notes": "Full upper day"
     },
     {
+      "id": 5,
       "date": "2026-09-03",
       "type": "full",
       "duration": 60,
@@ -47,6 +52,7 @@
       "notes": "Long session"
     },
     {
+      "id": 6,
       "date": "2026-09-01",
       "type": "push",
       "duration": 40,
@@ -56,6 +62,7 @@
       "notes": "Light push"
     },
     {
+      "id": 7,
       "date": "2026-08-29",
       "type": "cardio",
       "duration": 30,
@@ -65,6 +72,7 @@
       "notes": "Morning run 5km"
     },
     {
+      "id": 8,
       "date": "2026-08-27",
       "type": "legs",
       "duration": 45,
@@ -74,6 +82,7 @@
       "notes": ""
     },
     {
+      "id": 9,
       "date": "2026-08-25",
       "type": "pull",
       "duration": 50,
@@ -83,6 +92,7 @@
       "notes": ""
     },
     {
+      "id": 10,
       "date": "2026-08-22",
       "type": "full",
       "duration": 55,
@@ -92,6 +102,7 @@
       "notes": ""
     },
     {
+      "id": 11,
       "date": "2026-08-20",
       "type": "core",
       "duration": 20,
@@ -101,6 +112,7 @@
       "notes": "Ab session"
     },
     {
+      "id": 12,
       "date": "2026-08-18",
       "type": "upper",
       "duration": 50,
@@ -110,6 +122,7 @@
       "notes": ""
     },
     {
+      "id": 13,
       "date": "2026-08-15",
       "type": "push",
       "duration": 40,
@@ -119,6 +132,7 @@
       "notes": ""
     },
     {
+      "id": 14,
       "date": "2026-08-13",
       "type": "legs",
       "duration": 45,
@@ -128,6 +142,7 @@
       "notes": ""
     },
     {
+      "id": 15,
       "date": "2026-08-11",
       "type": "pull",
       "duration": 45,
@@ -137,6 +152,7 @@
       "notes": ""
     },
     {
+      "id": 16,
       "date": "2026-08-08",
       "type": "full",
       "duration": 55,
@@ -146,6 +162,7 @@
       "notes": ""
     },
     {
+      "id": 17,
       "date": "2026-07-20",
       "type": "full",
       "duration": 50,
@@ -155,6 +172,7 @@
       "notes": ""
     },
     {
+      "id": 18,
       "date": "2026-07-15",
       "type": "push",
       "duration": 40,
@@ -164,6 +182,7 @@
       "notes": ""
     },
     {
+      "id": 19,
       "date": "2026-07-12",
       "type": "legs",
       "duration": 40,
@@ -173,12 +192,53 @@
       "notes": ""
     },
     {
+      "id": 20,
       "date": "2026-07-10",
       "type": "pull",
       "duration": 40,
       "sets": 10,
       "reps": 8,
       "volume": 3200,
+      "notes": ""
+    },
+    {
+      "id": 21,
+      "date": "2026-07-08",
+      "type": "full",
+      "duration": 50,
+      "sets": 12,
+      "reps": 10,
+      "volume": 6500,
+      "notes": ""
+    },
+    {
+      "id": 22,
+      "date": "2026-07-05",
+      "type": "cardio",
+      "duration": 30,
+      "sets": 0,
+      "reps": 0,
+      "volume": 0,
+      "notes": "Run 3km"
+    },
+    {
+      "id": 23,
+      "date": "2026-06-10",
+      "type": "full",
+      "duration": 45,
+      "sets": 12,
+      "reps": 10,
+      "volume": 5500,
+      "notes": ""
+    },
+    {
+      "id": 24,
+      "date": "2026-05-20",
+      "type": "full",
+      "duration": 40,
+      "sets": 10,
+      "reps": 8,
+      "volume": 4200,
       "notes": ""
     }
   ],
@@ -244,12 +304,12 @@
     }
   ],
   "totals": {
-    "sessions": 20,
-    "volume": 97600,
+    "sessions": 24,
+    "volume": 113800,
     "bodyweight": 82.5,
     "bodyfat": 14.2,
     "streak": 0,
-    "weeks": 7
+    "weeks": 8
   },
   "last7": {
     "sessions": 3,

@@ -11,7 +11,7 @@ const STAGE_COLOR: Record<string, string> = {
 export default function CeoView() {
   const kpis = data.kpis
   const board = data.board
-  const metrics = data.metrics
+  const gym = data.gym
 
   const pipelineGirls = kpis.find((k: any) => k.key === "pipeline_girls")?.value ?? 0
   const obsession = kpis.find((k: any) => k.key === "obsession")?.value ?? 0
@@ -52,24 +52,24 @@ export default function CeoView() {
       </div>
 
       {/* Body + streaks */}
-      {metrics.total_heat !== undefined && (
+      {gym.totals !== undefined && (
         <div className="grid gap-3 sm:grid-cols-3">
           <div className="rounded-lg border bg-card p-4">
             <div className="text-xs text-muted-foreground uppercase tracking-wider">Bodyweight</div>
             <div className="text-2xl font-semibold mt-1">
-              {metrics.totals?.bodyweight ? `${metrics.totals.bodyweight} kg` : "—"}
+              {gym.totals?.bodyweight ? `${gym.totals.bodyweight} kg` : "—"}
             </div>
           </div>
           <div className="rounded-lg border bg-card p-4">
             <div className="text-xs text-muted-foreground uppercase tracking-wider">Gym Streak</div>
             <div className="text-2xl font-semibold mt-1">
-              {metrics.totals?.streak ? `${metrics.totals.streak} days` : "—"}
+              {gym.totals?.streak ? `${gym.totals.streak} days` : "—"}
             </div>
           </div>
           <div className="rounded-lg border bg-card p-4">
             <div className="text-xs text-muted-foreground uppercase tracking-wider">Sessions This Week</div>
             <div className="text-2xl font-semibold mt-1">
-              {metrics.last7?.sessions ?? metrics.total_heat ? `${metrics.last7?.sessions ?? 0}` : "—"}
+              {gym.last7?.sessions ? `${gym.last7.sessions}` : "—"}
             </div>
           </div>
         </div>
@@ -118,7 +118,7 @@ function GirlRow({ girl }: { girl: any }) {
       <div className="flex items-center justify-between mb-1">
         <div className="font-medium truncate">{girl.name}</div>
         <div className="text-right shrink-0">
-          <span className={`text-xspx px-1.5 py-0 h-5 rounded ${STAGE_COLOR[girl.stage_new] || ""}`}>
+          <span className={`text-xs px-1.5 py-0 h-5 rounded ${STAGE_COLOR[girl.stage_new] || ""}`}>
             {girl.stage_new}
           </span>
           <div className="text-xs text-muted-foreground tabular-nums ml-1">{girl.heat_v2}</div>

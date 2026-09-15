@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-14T13:22:08.401Z",
+  "updated": "2026-09-14T16:42:59.552Z",
   "total_persons": 1978,
   "health": [
     {
@@ -11,7 +11,7 @@
       "cadence_days": 7,
       "overdue_count": 8,
       "due_count": 0,
-      "ok_count": 10
+      "ok_count": 5
     },
     {
       "circle_id": "close",
@@ -22,7 +22,7 @@
       "cadence_days": 14,
       "overdue_count": 0,
       "due_count": 7,
-      "ok_count": 7
+      "ok_count": 2
     },
     {
       "circle_id": "locked_in",
@@ -33,7 +33,7 @@
       "cadence_days": 30,
       "overdue_count": 2,
       "due_count": 1,
-      "ok_count": 59
+      "ok_count": 42
     },
     {
       "circle_id": "rich",
@@ -44,7 +44,7 @@
       "cadence_days": 30,
       "overdue_count": 1,
       "due_count": 1,
-      "ok_count": 41
+      "ok_count": 32
     },
     {
       "circle_id": "medium",
@@ -55,29 +55,18 @@
       "cadence_days": 90,
       "overdue_count": 0,
       "due_count": 0,
-      "ok_count": 39
-    },
-    {
-      "circle_id": "guys",
-      "name": "The Guys",
-      "capacity": 50,
-      "filled": 82,
-      "fill_pct": 164,
-      "cadence_days": 30,
-      "overdue_count": 5,
-      "due_count": 5,
-      "ok_count": 141
+      "ok_count": 27
     },
     {
       "circle_id": "acquaintance",
       "name": "Acquaintances",
       "capacity": 100,
-      "filled": 1010,
-      "fill_pct": 1010,
+      "filled": 1046,
+      "fill_pct": 1046,
       "cadence_days": 180,
       "overdue_count": 1,
       "due_count": 0,
-      "ok_count": 1048
+      "ok_count": 1063
     },
     {
       "circle_id": "mutual",
@@ -94,29 +83,11 @@
   "contacts": [
     {
       "name": "Frank Steinhoff",
-      "circle_name": "The Guys",
-      "status": "OVERDUE",
-      "days_since_contact": 17,
-      "last_contact_date": "2026-08-28",
-      "instagram_handle": "Frank Steinhoff",
-      "person_type": "friend"
-    },
-    {
-      "name": "Frank Steinhoff",
       "circle_name": "Inner Circle",
       "status": "OVERDUE",
       "days_since_contact": 17,
       "last_contact_date": "2026-08-28",
       "instagram_handle": "Frank Steinhoff",
-      "person_type": "friend"
-    },
-    {
-      "name": "Rayhan",
-      "circle_name": "The Guys",
-      "status": "OVERDUE",
-      "days_since_contact": 17,
-      "last_contact_date": "2026-08-28",
-      "instagram_handle": "ray",
       "person_type": "friend"
     },
     {
@@ -165,15 +136,6 @@
       "person_type": "friend"
     },
     {
-      "name": "Hayden McCluskey",
-      "circle_name": "The Guys",
-      "status": "DUE",
-      "days_since_contact": 17,
-      "last_contact_date": "2026-08-28",
-      "instagram_handle": "HAYDEN MCCLUSKEY",
-      "person_type": "friend"
-    },
-    {
       "name": "Finley The Pussy Magnet",
       "circle_name": "Close Friends",
       "status": "DUE",
@@ -202,15 +164,6 @@
     },
     {
       "name": "Ivan  Wazir",
-      "circle_name": "The Guys",
-      "status": "OVERDUE",
-      "days_since_contact": 17,
-      "last_contact_date": "2026-08-28",
-      "instagram_handle": null,
-      "person_type": "friend"
-    },
-    {
-      "name": "Ivan  Wazir",
       "circle_name": "Inner Circle",
       "status": "OVERDUE",
       "days_since_contact": 17,
@@ -228,15 +181,6 @@
       "person_type": "friend"
     },
     {
-      "name": "Hugh Gymy Niggy",
-      "circle_name": "The Guys",
-      "status": "DUE",
-      "days_since_contact": 17,
-      "last_contact_date": "2026-08-28",
-      "instagram_handle": "hugh",
-      "person_type": "friend"
-    },
-    {
       "name": "Sean My Seanje Wanie",
       "circle_name": "Close Friends",
       "status": "DUE",
@@ -246,26 +190,8 @@
       "person_type": "friend"
     },
     {
-      "name": "Sean My Seanje Wanie",
-      "circle_name": "The Guys",
-      "status": "DUE",
-      "days_since_contact": 17,
-      "last_contact_date": "2026-08-28",
-      "instagram_handle": "Sean",
-      "person_type": "friend"
-    },
-    {
       "name": "Max Zumkeller",
       "circle_name": "Close Friends",
-      "status": "DUE",
-      "days_since_contact": 17,
-      "last_contact_date": "2026-08-28",
-      "instagram_handle": null,
-      "person_type": "friend"
-    },
-    {
-      "name": "Max Zumkeller",
-      "circle_name": "The Guys",
       "status": "DUE",
       "days_since_contact": 17,
       "last_contact_date": "2026-08-28",
@@ -283,29 +209,11 @@
     },
     {
       "name": "Rayan Joker",
-      "circle_name": "The Guys",
-      "status": "OVERDUE",
-      "days_since_contact": 17,
-      "last_contact_date": "2026-08-28",
-      "instagram_handle": null,
-      "person_type": "friend"
-    },
-    {
-      "name": "Rayan Joker",
       "circle_name": "Inner Circle",
       "status": "OVERDUE",
       "days_since_contact": 17,
       "last_contact_date": "2026-08-28",
       "instagram_handle": null,
-      "person_type": "friend"
-    },
-    {
-      "name": "Alexi",
-      "circle_name": "The Guys",
-      "status": "OVERDUE",
-      "days_since_contact": 17,
-      "last_contact_date": "2026-08-28",
-      "instagram_handle": "Alex",
       "person_type": "friend"
     },
     {
@@ -320,15 +228,6 @@
     {
       "name": "Gaspard Legros",
       "circle_name": "Close Friends",
-      "status": "DUE",
-      "days_since_contact": 17,
-      "last_contact_date": "2026-08-28",
-      "instagram_handle": "Gaspard leg",
-      "person_type": "friend"
-    },
-    {
-      "name": "Gaspard Legros",
-      "circle_name": "The Guys",
       "status": "DUE",
       "days_since_contact": 17,
       "last_contact_date": "2026-08-28",
