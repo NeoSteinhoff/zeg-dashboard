@@ -8,12 +8,14 @@ import { ZegSidebar as Sidebar } from "./layout"
 // Pre-import all view chunks into the main bundle so they're not tree-shaken
 // Pull the actual default export (the component function) to force Rolldown
 // to include the module and its data.json side effects in the bundle
+import DashboardMod from "./views/dashboard"
 import CircleMod from "./views/circle"
 import RosterMod from "./views/roster"
 import GymMod from "./views/gym"
 import CeoMod from "./views/ceo"
 import PromptCenterPage from "./views/prompt-center"
 // Use the imported modules so they're not dead code eliminated
+void DashboardMod
 void PromptCenterPage
 void CircleMod
 void RosterMod
